@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 const Cart = ({ check, onClick }) => {
+
+ 
   return (
     <div onClick={onClick} className="relative flex justify-center ">
       <button
