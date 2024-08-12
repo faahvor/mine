@@ -3,7 +3,7 @@ import Cart from "./Cart";
 import Description from "./Description";
 import Button from "./Button";
 const Down = ({ carts, words }) => {
-  console.log(carts);
+ 
 
   const [seconBtn, setSeconBtn] = useState(false);
 
