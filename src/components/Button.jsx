@@ -1,16 +1,11 @@
-import React, { useState } from "react";
-import Side from "./Side";
-const Button = () => {
-  const [count, setCount] = useState(0);
-
+/* eslint-disable react/prop-types */
+const Button = ({ setCount, count }) => {
   const increment = () => {
     setCount(count + 1);
-    <Side/>
   };
   const decrement = () => {
     setCount(count > 0 ? count - 1 : 0);
   };
-
 
   return (
     <div className="relative flex justify-center ">

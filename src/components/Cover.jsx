@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import Down from "./Down";
 
 import Image_src from "./Image_src";

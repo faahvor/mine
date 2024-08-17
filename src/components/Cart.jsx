@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unknown-property */
 
 const Cart = ({ check, onClick }) => {
-
- 
   return (
     <div onClick={onClick} className="relative flex justify-center ">
       <button
