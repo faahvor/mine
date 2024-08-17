@@ -1,5 +1,4 @@
-import React from "react";
-import Cart from "./Cart";
+/* eslint-disable react/prop-types */
 
 const Image_src = ({ img }) => {
   return (

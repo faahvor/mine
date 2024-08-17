@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Products from "./Products";
-const Side = ({ picking }) => {
+const Side = ({ count, name }) => {
   return (
     <div>
       <div className=" hidden  flex-col bg-white p-8 mt-[5rem] lg:mr-[10rem] rounded-xl mb-[5rem] lg:mb-[48rem]">
@@ -12,7 +12,7 @@ const Side = ({ picking }) => {
           your added items will appear here
         </h1>
       </div>
-      <Products things={picking} />
+      <Products things={count} choice={name} />
     </div>
   );
 };

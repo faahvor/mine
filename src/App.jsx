@@ -12,7 +12,7 @@ function App() {
         <h1 className="font-bold text-5xl px-4 pt-9 mb-7">Desserts</h1>
         <Cover data={Data} setCount={setCount} count={count} />
       </div>
-      <Side check={Data}  count={count} />
+      <Side check={Data}  count={count} choice={Data}/>
     </div>
   );
 }

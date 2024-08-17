@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
-const Products = ({ things }) => {
+const Products = ({ things,name }) => {
+  
   return (
     <div className=" flex-col bg-white p-8 mt-[5rem] lg:mr-[6rem] rounded-xl mb-[5rem] lg:mb-[40rem]">
       <h1 className="text-[#C83B0F] font-bold text-xl">Your Carts 0</h1>
@@ -13,9 +14,9 @@ const Products = ({ things }) => {
         </p>
         <p className="flex gap-6">
           <span className="text-[#C83B0F] font-semibold">
-            {(things * things).toFixed(2)}X
+            {things}X
           </span>
-          <span>@{things}</span>
+          <span>@{name}</span>
           <span className="text-[#C83B0F] font-semibold">${things}</span>
         </p>
       </div>
