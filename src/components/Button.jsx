@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-const Button = ({ setCount, count }) => {
+const Button = ({ setCount, count ,product,handleSelectedProduct}) => {
   const increment = () => {
     setCount(count + 1);
+    handleSelectedProduct(product);
   };
   const decrement = () => {
     setCount(count > 0 ? count - 1 : 0);
