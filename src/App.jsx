@@ -8,13 +8,26 @@ function App() {
   const [selected, setSelected] = useState({});
 
   const handleSelectedProduct = (product) => {
-    setSelected(prevSelected => {
+    setSelected((prevSelected) => {
       const newSelected = { ...prevSelected };
-      if (newSelected[product.name]) {
-        newSelected[product.name].quantity += 1; // Increment quantity
+      
+      // If quantity is 0, remove the item from the cart
+      if (product.quantity <= 0) {
+        delete newSelected[product.name];
       } else {
-        newSelected[product.name] = { quantity: 1, price: product.price }; // Add new product with quantity 1
+        // Update the product in the cart
+        newSelected[product.name] = { 
+          quantity: product.quantity, 
+          price: product.price 
+        };
       }
+      return newSelected;
+    });
+  };
+  const handleRemoveItem = (itemName) => {
+    setSelected((prevSelected) => {
+      const newSelected = { ...prevSelected };
+      delete newSelected[itemName]; // Remove the item from the cart
       return newSelected;
     });
   };
@@ -25,12 +38,11 @@ function App() {
         <h1 className="font-bold text-5xl px-4 pt-9 mb-7">Desserts</h1>
         <Cover
           data={Data}
-          setCount={setCount}
-          count={count}
           handleSelectedProduct={handleSelectedProduct}
         />
       </div>
-      <Side check={selected} />
+      <Side check={selected}
+      handleRemoveItem={handleRemoveItem} />
     </div>
   );
 }

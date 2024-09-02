@@ -1,11 +1,16 @@
+import { useState } from "react";
+
 /* eslint-disable react/prop-types */
-const Button = ({ setCount, count ,product,handleSelectedProduct}) => {
+const Button = ({ product, handleSelectedProduct }) => {
+  const [quantity, setQuantity] = useState(0);
+
   const increment = () => {
-    setCount(count + 1);
-    handleSelectedProduct(product);
+    setQuantity(quantity + 1);
+    handleSelectedProduct({ ...product, quantity: quantity + 1 });
   };
   const decrement = () => {
-    setCount(count > 0 ? count - 1 : 0);
+    if (quantity > 0) setQuantity(quantity - 1);
+    handleSelectedProduct({ ...product, quantity: quantity - 1 });
   };
 
   return (
@@ -20,7 +25,7 @@ const Button = ({ setCount, count ,product,handleSelectedProduct}) => {
         >
           -
         </span>
-        <span>{count}</span>
+        <span>{quantity}</span>
         <span
           className="hover:bg-white rounded-full border-2 border-white px-2"
           onClick={increment}

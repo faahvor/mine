@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
 import Products from "./Products";
 
-const Side = ({ check }) => {
+const Side = ({ check,handleRemoveItem }) => {
+const totalItems = Object.keys(check).reduce((total,item)=>{
+  return total + check[item].quantity
+},0)
+
   if (Object.keys(check).length === 0) {
     return (
-      <div className="hidden flex-col bg-white p-8 mt-[5rem] lg:mr-[10rem] rounded-xl mb-[5rem] lg:mb-[48rem]">
+      <div className="flex flex-col bg-white p-8 mt-[5rem] lg:mr-[10rem] rounded-xl mb-[5rem] lg:mb-[48rem]">
         <img
           src="https://res.cloudinary.com/dsjsvmug6/image/upload/v1723192574/illustration-empty-cart_vwtvtq.svg"
           alt=""
@@ -17,8 +21,8 @@ const Side = ({ check }) => {
   }
 
   return (
-    <div className="flex-col flex bg-white p-8 mt-[5rem] h-[20rem] lg:mr-[6rem] rounded-xl pb-[5rem] lg:pb-[40rem]">
-       <h1 className="text-[#C83B0F] font-bold text-xl">Your Cart</h1>
+    <div className="flex-col flex bg-white p-8 mt-[5rem]  lg:mr-[6rem] rounded-xl   mb-[50rem]">
+       <h1 className="text-[#C83B0F] font-bold text-xl">Your Cart <span>{totalItems}</span> </h1>
     
       {Object.keys(check).map((item, index) => (
         <Products
@@ -26,9 +30,12 @@ const Side = ({ check }) => {
           things={check[item].quantity} // Pass quantity
           me={item}
           price={check[item].price} // Pass price
+          onRemove={handleRemoveItem}
         />
       ))}
-   
+      <div className="flex justify-center items-center mt-4">
+    <button className=" text-center bg-[#C83B0F] py-2 px-[3rem] w-[10rem] rounded-full text-white">Checkout</button>
+    </div>
     </div>
   );
 };

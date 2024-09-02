@@ -3,7 +3,7 @@ import { useState } from "react";
 import Cart from "./Cart";
 import Description from "./Description";
 import Button from "./Button";
-const Down = ({ carts, words, setCount, count, handleSelectedProduct }) => {
+const Down = ({ carts, words,handleSelectedProduct }) => {
   const [seconBtn, setSeconBtn] = useState(false);
 
   const handleClick = () => {
@@ -14,8 +14,6 @@ const Down = ({ carts, words, setCount, count, handleSelectedProduct }) => {
     <div>
       {seconBtn === true ? (
         <Button
-          setCount={setCount}
-          count={count}
           product={carts}
           handleSelectedProduct={handleSelectedProduct}
         />
